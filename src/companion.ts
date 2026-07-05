@@ -1,59 +1,70 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-/* Scroll elevator: a small accent square rides a hairline rail down the
-   viewport edge, spinning with scroll and squashing with velocity, with a
-   mono readout of the current section. Desktop + motion-safe only. */
-export function scrollElevator() {
-  const rail = document.createElement('div');
-  rail.className = 'rail';
-  rail.setAttribute('aria-hidden', 'true');
-  rail.innerHTML = `
-    <span class="rail-thumb"></span>
-    <span class="rail-label mono">00</span>
+/* Shuttle: a blinking block cursor — the engineer's pen — resting on a
+   fixed track at the bottom of the viewport. Scroll scrubs it left and
+   right between waypoints, one per section, tumbling as it travels.
+   Desktop + motion-safe only. */
+export function shuttle() {
+  const track = document.createElement('div');
+  track.className = 'shuttle-track';
+  track.setAttribute('aria-hidden', 'true');
+  track.innerHTML = `
+    <span class="shuttle">
+      <span class="shuttle-label mono">00</span>
+    </span>
   `;
-  document.body.appendChild(rail);
+  document.body.appendChild(track);
 
-  const thumb = rail.querySelector<HTMLElement>('.rail-thumb')!;
-  const label = rail.querySelector<HTMLElement>('.rail-label')!;
+  const cursor = track.querySelector<HTMLElement>('.shuttle')!;
+  const label = track.querySelector<HTMLElement>('.shuttle-label')!;
 
-  const travel = () => rail.clientHeight - thumb.offsetHeight;
-  const yTo = gsap.quickTo(thumb, 'y', { duration: 0.35, ease: 'power3.out' });
-  const squashTo = gsap.quickTo(thumb, 'scaleY', { duration: 0.25, ease: 'power2.out' });
-
-  ScrollTrigger.create({
-    start: 0,
-    end: 'max',
-    onUpdate: (self) => {
-      yTo(self.progress * travel());
-      // spin with scroll distance, squash with speed
-      gsap.set(thumb, { rotation: window.scrollY / 6 });
-      const v = Math.min(Math.abs(self.getVelocity()) / 4000, 0.45);
-      squashTo(1 - v);
-    },
-    onScrubComplete: () => squashTo(1),
+  // idle terminal blink; suspended while travelling
+  const blink = gsap.to(cursor, {
+    opacity: 0.25,
+    duration: 0.55,
+    repeat: -1,
+    yoyo: true,
+    ease: 'steps(1)',
   });
 
-  // settle squash back when scrolling stops
-  let settle: ReturnType<typeof setTimeout>;
-  window.addEventListener(
-    'scroll',
-    () => {
-      clearTimeout(settle);
-      settle = setTimeout(() => squashTo(1), 120);
-    },
-    { passive: true },
-  );
-
-  // section readout
-  const stops: Array<[string, string]> = [
-    ['.hero', '00'],
-    ['.work', '01'],
-    ['.experience', '02'],
-    ['.about', '03'],
-    ['.achievements', '04'],
-    ['.contact', '05'],
+  // waypoints: percentage of track width per section, weaving L <-> R
+  const stops: Array<[string, string, number]> = [
+    ['.hero', '00', 4],
+    ['.work', '01', 82],
+    ['.experience', '02', 18],
+    ['.about', '03', 74],
+    ['.achievements', '04', 30],
+    ['.contact', '05', 92],
   ];
+
+  const tl = gsap.timeline({
+    defaults: { ease: 'power1.inOut' },
+    scrollTrigger: {
+      trigger: document.body,
+      start: 'top top',
+      end: 'max',
+      scrub: 1,
+      onUpdate: () => {
+        blink.pause();
+        gsap.set(cursor, { opacity: 1 });
+        clearTimeout(rest);
+        rest = setTimeout(() => blink.restart(), 260);
+      },
+    },
+  });
+  let rest: ReturnType<typeof setTimeout>;
+
+  stops.forEach(([, , pct], i) => {
+    if (i === 0) {
+      gsap.set(cursor, { left: `${pct}%`, rotation: 0 });
+    } else {
+      // one full tumble per hop so it always lands upright
+      tl.to(cursor, { left: `${pct}%`, rotation: i * 360, duration: 1 }, i - 1);
+    }
+  });
+
+  // section readout riding on the cursor
   stops.forEach(([sel, num]) => {
     ScrollTrigger.create({
       trigger: sel,
@@ -62,7 +73,11 @@ export function scrollElevator() {
       onToggle: (self) => {
         if (self.isActive) {
           label.textContent = num;
-          gsap.fromTo(label, { yPercent: 60, autoAlpha: 0 }, { yPercent: 0, autoAlpha: 1, duration: 0.3 });
+          gsap.fromTo(
+            label,
+            { yPercent: 40, autoAlpha: 0 },
+            { yPercent: 0, autoAlpha: 1, duration: 0.3, ease: 'power2.out' },
+          );
         }
       },
     });

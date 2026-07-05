@@ -5,7 +5,7 @@ import './style.css';
 
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { scrollElevator, cursorFollower } from './companion';
+import { shuttle, cursorFollower } from './companion';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -31,8 +31,8 @@ mm.add(
 /* Scroll companion: desktop, motion-safe, fine pointer for the cursor dot.
    Cleanup removes injected DOM when conditions stop matching. */
 mm.add('(prefers-reduced-motion: no-preference) and (min-width: 900px)', () => {
-  scrollElevator();
-  return () => document.querySelector('.rail')?.remove();
+  shuttle();
+  return () => document.querySelector('.shuttle-track')?.remove();
 });
 
 mm.add('(prefers-reduced-motion: no-preference) and (pointer: fine)', () => {

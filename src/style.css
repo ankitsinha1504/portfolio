@@ -510,31 +510,30 @@ section {
 
 /* ---------- scroll companion ---------- */
 
-.rail {
+.shuttle-track {
   position: fixed;
-  top: 5.5rem;
-  bottom: 3.5rem;
-  right: 1.6rem;
-  width: 1px;
+  left: var(--pad-x);
+  right: var(--pad-x);
+  bottom: 1.4rem;
+  height: 1px;
   background: var(--line);
   z-index: 9;
   pointer-events: none;
 }
 
-.rail-thumb {
+.shuttle {
   position: absolute;
-  top: 0;
-  left: 50%;
-  margin-left: -5px;
-  width: 10px;
-  height: 10px;
+  bottom: 0;
+  width: 12px;
+  height: 22px;
   background: var(--accent);
   display: block;
+  transform-origin: 50% 100%;
 }
 
-.rail-label {
+.shuttle-label {
   position: absolute;
-  bottom: -1.8rem;
+  bottom: calc(100% + 0.5rem);
   left: 50%;
   transform: translateX(-50%);
   font-size: 0.6875rem;
@@ -564,6 +563,13 @@ section {
   height: 44px;
   background: transparent;
   border-color: var(--accent);
+}
+
+/* shuttle replaces the scroll cue where it exists */
+@media (min-width: 900px) and (prefers-reduced-motion: no-preference) {
+  .scroll-cue {
+    display: none;
+  }
 }
 
 /* ---------- responsive ---------- */
