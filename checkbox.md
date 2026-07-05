@@ -32,8 +32,8 @@
 
 ## Phase 4: Deploy
 - [x] Push to GitHub repository
-- [ ] Connect and deploy on Vercel
-- [ ] Verify production build + share URL
+- [x] Connect and deploy on Vercel
+- [x] Verify production build + share URL
 
 ## Phase 5 (future, on demand)
 - [ ] Case-study pages for Text-to-SQL thesis and LLVM project once content exists
