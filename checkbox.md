@@ -31,7 +31,7 @@
 - [ ] Cross-browser/mobile check
 
 ## Phase 4: Deploy
-- [ ] Push to GitHub repository
+- [x] Push to GitHub repository
 - [ ] Connect and deploy on Vercel
 - [ ] Verify production build + share URL
 
