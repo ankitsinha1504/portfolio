@@ -41,11 +41,12 @@
 - [ ] Desktop-only, motion-safe, a11y-clean
 - [ ] Branch preview approved and merged
 
-## Phase 5b: Glyph Glider (feat/glyph-glider)
-- [x] Giant asterisk glides down viewport on curved weave, scroll-scrubbed
-- [x] Multiply blend + idle float; slow rotation, lands upright near contact
-- [x] Desktop-only, motion-safe, a11y-clean
-- [x] Screenshot verified, branch pushed, preview URL shared
+## Phase 5b: Token Train (feat/glyph-glider)
+- [x] ~~Giant asterisk glider~~ built + previewed, rejected — replaced by token train
+- [ ] Token chips snake down curved weave follow-the-leader, scroll-scrubbed
+- [ ] Scramble morph NL → SQL mid-page, staggered, reversible on scroll-up
+- [ ] Desktop-only, motion-safe, a11y-clean
+- [ ] Screenshot verified, branch pushed, preview URL shared
 
 ## Phase 6 (future, on demand)
 - [ ] Case-study pages for Text-to-SQL thesis and LLVM project once content exists

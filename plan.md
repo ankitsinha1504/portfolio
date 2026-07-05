@@ -80,10 +80,12 @@ Headline identity: name-first minimal hero with descriptor "Software engineer bu
 - [ ] Both desktop-only (≥900px), motion-safe only, aria-hidden, pointer-events none
 - [ ] Preview on Vercel branch deploy, merge after approval
 
-### Phase 5b: Glyph Glider (branch: feat/glyph-glider, stacked on feat/scroll-companion)
-- [ ] Giant ultramarine asterisk (SVG, ~19vh) that glides down the viewport as you scroll — not a straight drop: it weaves on a smooth S-curve between left/right waypoints (one per section), turning slowly, settling lower-right beside the contact CTA
-- [ ] Multiply blend over content so it layers like a print overlay; idle float loop so it never sits dead still
-- [ ] Desktop-only (≥900px), motion-safe only, aria-hidden, pointer-events none, scrub with lag for glide feel
+### Phase 5b: Token Train (branch: feat/glyph-glider, stacked on feat/scroll-companion)
+Replaces the giant-asterisk glider (built, rejected: "just a giant asterisk moving around" — decorative, no meaning). New concept performs the Text-to-SQL thesis as you scroll:
+- [ ] Train of small mono token chips — a natural-language query ["show"]["me"]["the"]["work"] — snakes down the viewport follow-the-leader along the same curved weave (per-section waypoints, linear sink, gentle banking on turns)
+- [ ] Mid-page each chip scrambles and morphs into its SQL counterpart: [SELECT][*][FROM][work;] — staggered leader-first, reversible when scrolling back up
+- [ ] Solid ultramarine chips, paper mono text, multiply blend; settles beside the contact CTA as a finished query
+- [ ] Desktop-only (≥900px), motion-safe only, aria-hidden, pointer-events none, scrub with lag
 - [ ] Screenshot-verify, push branch for Vercel preview, share URL
 
 ### Phase 6 (future, on demand)
@@ -100,6 +102,7 @@ Headline identity: name-first minimal hero with descriptor "Software engineer bu
 - 2026-07-05: Featured work = Text-to-SQL thesis + LLVM project (in progress, placeholder copy) + old projects as backfill, swappable later.
 - 2026-07-05: Scroll-companion branch kept as-is per user; new big vertical element lives on feat/glyph-glider stacked on top of it so both compose in one preview.
 - 2026-07-05: Big vertical element = hero-scale ultramarine asterisk gliding on a curved weave (user: "it should glide, move in a curve, not just straight down"); multiply-blend overlay, desktop + motion-safe only.
+- 2026-07-05: Asterisk rejected after preview (decorative, not meaningful). Replaced by token train: NL query tokens glide down the curve and morph into SQL — the element now narrates the user's thesis (Text-to-SQL). Curve/weave mechanics kept.
 
 ## Notes
 - Resume (Resume_Aug25.pdf in repo root) is the content source but outdated: current focus is systems, RAG, LLMs. Copy should reflect the new direction.
