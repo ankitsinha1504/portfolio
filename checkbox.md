@@ -42,10 +42,10 @@
 - [ ] Branch preview approved and merged
 
 ## Phase 5b: Glyph Glider (feat/glyph-glider)
-- [ ] Giant asterisk glides down viewport on curved weave, scroll-scrubbed
-- [ ] Multiply blend + idle float; slow rotation, lands upright near contact
-- [ ] Desktop-only, motion-safe, a11y-clean
-- [ ] Screenshot verified, branch pushed, preview URL shared
+- [x] Giant asterisk glides down viewport on curved weave, scroll-scrubbed
+- [x] Multiply blend + idle float; slow rotation, lands upright near contact
+- [x] Desktop-only, motion-safe, a11y-clean
+- [x] Screenshot verified, branch pushed, preview URL shared
 
 ## Phase 6 (future, on demand)
 - [ ] Case-study pages for Text-to-SQL thesis and LLVM project once content exists

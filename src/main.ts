@@ -6,6 +6,7 @@ import './style.css';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { shuttle, cursorFollower } from './companion';
+import { glider } from './glider';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -32,7 +33,11 @@ mm.add(
    Cleanup removes injected DOM when conditions stop matching. */
 mm.add('(prefers-reduced-motion: no-preference) and (min-width: 900px)', () => {
   shuttle();
-  return () => document.querySelector('.shuttle-track')?.remove();
+  glider();
+  return () => {
+    document.querySelector('.shuttle-track')?.remove();
+    document.querySelector('.glider')?.remove();
+  };
 });
 
 mm.add('(prefers-reduced-motion: no-preference) and (pointer: fine)', () => {
