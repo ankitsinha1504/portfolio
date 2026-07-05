@@ -74,7 +74,13 @@ Headline identity: name-first minimal hero with descriptor "Software engineer bu
 - [ ] Connect and deploy on Vercel
 - [ ] Verify production build + share URL
 
-### Phase 5 (future, on demand)
+### Phase 5: Scroll Companion (branch: feat/scroll-companion)
+- [ ] Scroll elevator: ultramarine square rides a hairline rail on the right edge, tracks scroll progress, spins with scroll direction, squashes with velocity; mono label shows current section (01–05)
+- [ ] Cursor follower: lagging blue dot (desktop, fine-pointer only), grows to a ring over interactive rows/links
+- [ ] Both desktop-only (≥900px), motion-safe only, aria-hidden, pointer-events none
+- [ ] Preview on Vercel branch deploy, merge after approval
+
+### Phase 6 (future, on demand)
 - [ ] Case-study pages for Text-to-SQL thesis and LLVM project once content exists
 - [ ] Replace placeholder projects with final ones
 - [ ] Custom domain

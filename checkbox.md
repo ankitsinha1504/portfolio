@@ -35,7 +35,13 @@
 - [x] Connect and deploy on Vercel
 - [x] Verify production build + share URL
 
-## Phase 5 (future, on demand)
+## Phase 5: Scroll Companion
+- [ ] Scroll elevator (rail + progress square + section label)
+- [ ] Cursor follower dot with hover ring
+- [ ] Desktop-only, motion-safe, a11y-clean
+- [ ] Branch preview approved and merged
+
+## Phase 6 (future, on demand)
 - [ ] Case-study pages for Text-to-SQL thesis and LLVM project once content exists
 - [ ] Replace placeholder projects with final ones
 - [ ] Custom domain
