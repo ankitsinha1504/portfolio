@@ -41,12 +41,15 @@
 - [ ] Desktop-only, motion-safe, a11y-clean
 - [ ] Branch preview approved and merged
 
-## Phase 5b: Token Train (feat/glyph-glider)
+## Phase 5b: Live Query Line (feat/glyph-glider)
 - [x] ~~Giant asterisk glider~~ built + previewed, rejected — replaced by token train
-- [x] Token chips snake down curved weave follow-the-leader, scroll-scrubbed
-- [x] Scramble morph NL → SQL mid-page, staggered, reversible on scroll-up
-- [x] Desktop-only, motion-safe, a11y-clean
-- [x] Screenshot verified, branch pushed, preview URL shared
+- [x] ~~Token train (chips snake down weave, NL → SQL morph)~~ built + previewed, rejected as childish — replaced by live query line
+- [ ] Fixed mono status line bottom-left, blinking accent caret, above shuttle rail
+- [ ] Per-zone queries: hero / project cards (OFFSET ticks) / experience rows (year ticks) / about / achievements / contact INSERT
+- [ ] Char-preserving scramble morph between queries, reversible on scroll-up
+- [ ] Shuttle numeric label hidden while query line active
+- [ ] Desktop-only, motion-safe, a11y-clean
+- [ ] Screenshot verified, branch pushed, preview URL shared
 
 ## Phase 6 (future, on demand)
 - [ ] Case-study pages for Text-to-SQL thesis and LLVM project once content exists

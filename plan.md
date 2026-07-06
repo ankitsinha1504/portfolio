@@ -80,12 +80,13 @@ Headline identity: name-first minimal hero with descriptor "Software engineer bu
 - [ ] Both desktop-only (≥900px), motion-safe only, aria-hidden, pointer-events none
 - [ ] Preview on Vercel branch deploy, merge after approval
 
-### Phase 5b: Token Train (branch: feat/glyph-glider, stacked on feat/scroll-companion)
-Replaces the giant-asterisk glider (built, rejected: "just a giant asterisk moving around" — decorative, no meaning). New concept performs the Text-to-SQL thesis as you scroll:
-- [ ] Train of small mono token chips — a natural-language query ["show"]["me"]["the"]["work"] — snakes down the viewport follow-the-leader along the same curved weave (per-section waypoints, linear sink, gentle banking on turns)
-- [ ] Mid-page each chip scrambles and morphs into its SQL counterpart: [SELECT][*][FROM][work;] — staggered leader-first, reversible when scrolling back up
-- [ ] Solid ultramarine chips, paper mono text, multiply blend; settles beside the contact CTA as a finished query
-- [ ] Desktop-only (≥900px), motion-safe only, aria-hidden, pointer-events none, scrub with lag
+### Phase 5b: Live Query Line (branch: feat/glyph-glider, stacked on feat/scroll-companion)
+Token train built + previewed, rejected ("childish" — toy `SELECT * FROM work;`, banking rotation, filled candy chips). Replaced by a live query line: the page pretends to be a database and scroll is the cursor — a fixed mono status line always shows the SQL query whose result set is the content currently in viewport:
+- [ ] Fixed mono status line, bottom-left above the shuttle rail; ink-soft text, blinking ultramarine block caret
+- [ ] Per-zone queries tied to real content: hero (`SELECT * FROM ankit LIMIT 1;`), each project card ticks `LIMIT 1 OFFSET n`, each experience row ticks `WHERE year = <its year>`, about (`WHERE ts = now()`), achievements (`WHERE selected = true`), contact is the single write (`INSERT INTO inbox (sender) VALUES ('you');`)
+- [ ] Char-preserving scramble morph between queries — only characters that differ flicker, common prefix/suffix stays put; reversible on scroll-up
+- [ ] Shuttle numeric section label hidden while query line is active (query line supersedes it)
+- [ ] Desktop-only (≥900px), motion-safe only, aria-hidden, pointer-events none
 - [ ] Screenshot-verify, push branch for Vercel preview, share URL
 
 ### Phase 6 (future, on demand)
@@ -103,6 +104,7 @@ Replaces the giant-asterisk glider (built, rejected: "just a giant asterisk movi
 - 2026-07-05: Scroll-companion branch kept as-is per user; new big vertical element lives on feat/glyph-glider stacked on top of it so both compose in one preview.
 - 2026-07-05: Big vertical element = hero-scale ultramarine asterisk gliding on a curved weave (user: "it should glide, move in a curve, not just straight down"); multiply-blend overlay, desktop + motion-safe only.
 - 2026-07-05: Asterisk rejected after preview (decorative, not meaningful). Replaced by token train: NL query tokens glide down the curve and morph into SQL — the element now narrates the user's thesis (Text-to-SQL). Curve/weave mechanics kept.
+- 2026-07-06: Token train rejected after preview (childish — toy query, cartoon banking, filled chips). Replaced by live query line: fixed mono status line whose SQL always describes the viewport content, ticking at row level (project OFFSET, experience year); contact is the lone INSERT. Traveling element retired — content over motion.
 
 ## Notes
 - Resume (Resume_Aug25.pdf in repo root) is the content source but outdated: current focus is systems, RAG, LLMs. Copy should reflect the new direction.
